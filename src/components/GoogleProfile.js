@@ -32,18 +32,18 @@ export default function GoogleProfile({userData}) {
         }
       } else if (location.pathname.includes('v2')) {
         try {
-          const response = await authServerAxios.get('/user/profile/google',{withCredentials:true});
+          const response = await axios.get('https://photo-backend-delta.vercel.app/user/profile/google',{withCredentials:true});
 
           userData(response.data);
           console.log(response.data)
-          //navigate("/albums")
+          navigate("/albums")
         } catch (error) {
           if (error.status === 403 || error.status === 500) {
-           // navigate("/")
+          navigate("/")
           }
         }
       } else {
-       // navigate("/")
+        navigate("/")
       }
     })();
   }, []);
