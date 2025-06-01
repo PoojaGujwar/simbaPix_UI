@@ -6,7 +6,7 @@ import Header from "./Header";
 import { io } from "socket.io-client";
 
 
-const socket = io(`${process.env.REACT_APP_SERVER_BASE_URL}`,{withCredentials: true});
+const socket = io(`${process.env.REACT_APP_SERVER_BASE_URL}`);
 
 export default function Albums({ users }) {
   const navigate = useNavigate();
