@@ -38,7 +38,8 @@ export default function AddAlbum({ user, updateDataId, onUpdate, onClose }) {
       } else {
         const data = await axios.post(
           `${process.env.REACT_APP_SERVER_BASE_URL}/albums`,
-          formData
+          formData,
+          {withCredentials:true}
         );
         setMessage("Album added successfully.");
         console.log(data);

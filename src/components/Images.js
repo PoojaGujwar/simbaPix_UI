@@ -89,7 +89,8 @@ export default function Images() {
           </p>
         )}
         <div className="row mt-5">
-          {filterdImage?.map((imag, index) => (
+          {filterdImage?.length>0?(
+            filterdImage?.map((imag, index) => (
             <div className="col-md-4 mb-3" key={index}>
               <div
                 className="card mb-3 border-0 shadow"
@@ -111,7 +112,15 @@ export default function Images() {
                 </div>
               </div>
             </div>
-          ))}
+          ))):(
+            <div className="col-12">
+            <div className="card shadow-sm text-center py-4">
+              <div className="card-body">
+                <h5 className="card-title text-muted">No Images found</h5>
+              </div>
+            </div>
+          </div>
+          )}
         </div>
       </div>
     </div>
