@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# SimbaPix
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack SimbaPix app where you can create, share, update and delete albums, and also upload images in albums.
 
-## Available Scripts
+Built with React frontend, Express/Node backend, MongoDB database, and Google authentication.
 
-In the project directory, you can run:
+## Demo Link
 
-### `npm start`
+[Live Demo](https://simba-pix-ui.vercel.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Login
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Login with Google Auth
 
-### `npm test`
+## Quick Start
+```
+git clone https://github.com/PoojaGujwar/simbaPix_UI.git
+cd <your repo>
+npm install
+npm start # or `npm run dev`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies
 
-### `npm run build`
+- React JS
+- Node.js
+- Express
+- MongoDB
+- Cloudinary 
+- React Router
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
+**Home**
+  - Display a list of all albums
+  - Add a new album via form
+  - Update, delete and share albums
+  - Logout button
+  
+**Share Album**
+  - Display a list of cards shared by others
+  - Double tap on a card to show images
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Image**
+  - Display a list of images
+  - Delete images
+  - Upload images
 
-### `npm run eject`
+ **Login**
+   - Login via Google Auth
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Reference
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **GET /albums** <br>
+List all albums<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Sample Response: <br>
+```
+[{_id, name, description, ownerId, sharedUser},...]
+```
+### **GET /images**<br>
+List all images<br>
+Sample Response: <br>
+```
+[{_id,imageId, albumId, imageUrl, name, tags, person, isFavorite, comments, size, uploadedAt}]
+```
 
-## Learn More
+### **GET /v1/users**<br>
+List all users<br>
+Sample Response: <br>
+```
+[{_id, userId, name, email}]
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **GET /v1/shareData**<br>
+List all albums <br>
+Sample Response: <br>
+```
+[{sender, receiver, album}]
+```
+### **POST /albums** <br>
+Create a new album<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sample Response: <br>
+```
+{ name, description, ownerId, sharedUser}
+```
 
-### Code Splitting
+### **POST /albums/:id** <br>
+Update an album <br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Sample Response: <br>
+```
+{ name, description, ownerId, sharedUser}
+```
 
-### Analyzing the Bundle Size
+### **POST /images** <br>
+Add a new image <br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Sample Response: <br>
+```
+{ message, newImage}
+```
 
-### Making a Progressive Web App
+### **DELETE /albums/:id** <br>
+Delete an album<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Sample Response: <br>
+```
+{ message, album}
+```
 
-### Advanced Configuration
+### **DELETE /images/:id** <br>
+Delete an Image<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Sample Response: <br>
+```
+{ message, images}
+```
 
-### Deployment
+### **DELETE /v1/shareData/:id** <br>
+Delete shared album data<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Sample Response: <br>
+```
+{ message, data}
+```
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+For bugs or feature requests, please reach out to gujwarpooja@gmail.com
