@@ -23,8 +23,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/v2/profile/google" element={<GoogleProfile  userData={setUserInfo}/>}/>
       <Route element={<LayoutWithHeader/>}>
-     <Route path="/images" element={<Images users={userData}/>}/>
-     <Route path="/albums" element={<Albums users={userData}/>}/>
+      <Route path="/images" element={<Images users={userData}/>}/>
+      <Route path="/albums" element={<Albums users={userData}/>}/>
       <Route path="/create-album" element={<AddAlbum />}/>
       <Route path="/share-albums" element={<ShareAlbum users={userData}/>}/>
       </Route>
