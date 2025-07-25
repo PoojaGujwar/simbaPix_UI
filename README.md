@@ -4,13 +4,19 @@ A full-stack SimbaPix app where you can create, share, update and delete albums,
 
 Built with React frontend, Express/Node backend, MongoDB database, and Google authentication.
 
+---
+
 ## Demo Link
 
 [Live Demo](https://simba-pix-ui.vercel.app)
+ 
+ ---
 
 ## Login
 
 Login with Google Auth
+
+---
 
 ## Quick Start
 ```
@@ -19,6 +25,8 @@ cd <your repo>
 npm install
 npm start # or `npm run dev`
 ```
+
+---
 
 ## Technologies
 
@@ -30,6 +38,9 @@ npm start # or `npm run dev`
 - React Router
 
 ---
+
+## Demo Video
+[Demo video](https://drive.google.com/file/d/1e0J7E4jZnVcZkykzbk0GsukfyDCat0IR/view?usp=sharing)
 
 ## Features
 **Home**
@@ -128,6 +139,8 @@ Sample Response: <br>
 ```
 { message, data}
 ```
+
+---
 
 ## Contact
 For bugs or feature requests, please reach out to gujwarpooja@gmail.com

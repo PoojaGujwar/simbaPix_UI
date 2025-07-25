@@ -55,20 +55,6 @@ export default function AddAlbum({ user, updateDataId, onUpdate, onClose }) {
         setMessage("");
       }, 2000);
     }
-    //  try {
-    // if(!updateDataId){
-    //   console.log(formData,"India")
-    //   const response = await axios.post("http://localhost:4000/albums",formData)
-    //   console.log(response.data)
-    // }else{
-    //   const response = await axios.post(`http://localhost:4000/albums/${updateDataId._id}`,formData)
-    //     console.log(response.data)
-    //     setFormdata(initialData)
-    //   }
-    //  setFormdata(initialData)
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   const handleChange = (e) => {
