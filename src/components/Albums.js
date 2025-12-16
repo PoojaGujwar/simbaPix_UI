@@ -165,7 +165,7 @@ export default function Albums({ users }) {
       <div className="bg-light">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
-          {filterAlbums?.length >=0 && (
+          {filterAlbums?.length > 0 && (
             <div className="create-album-btn">
               <button
                 onClick={() => setShowValue(true)}
