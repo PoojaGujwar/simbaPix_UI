@@ -166,13 +166,14 @@ export default function Albums({ users }) {
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
           {showValue === false && (
+            <div className="d-flex justify-content-center my-4">
             <button
               onClick={() => setShowValue(true)}
-              className="btn btn-success text-center"
+              className="btn btn-success px-4 py-2 fw-semibold shadow"
             >
               + Create New Album
             </button>
-          )}
+       </div>   )}
           <div className="mt-2">
             {message && <p className="alert alert-success">{message}</p>}
 
