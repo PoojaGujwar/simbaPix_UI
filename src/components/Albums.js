@@ -165,34 +165,34 @@ export default function Albums({ users }) {
       <div className="bg-light">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
-          {showValue === false && (
+          {filterAlbums?.length === 0 && showValue === false && (
             <div className="create-album-btn">
-            <button
-              onClick={() => setShowValue(true)}
-              className="btn btn-success px-4 py-2 fw-semibold shadow"
-            >
-              + Create Album
-            </button>
-       </div>   )}
-       {filterAlbums?.length === 0 && !showValue && (
-  <div className="empty-album-wrapper">
-    <div className="empty-folder">
-      <i className="bi bi-folder2-open"></i>
-    </div>
+              <button
+                onClick={() => setShowValue(true)}
+                className="btn btn-success px-4 py-2 fw-semibold shadow"
+              >
+                + Create Album
+              </button>
+            </div>)}
+          {filterAlbums?.length === 0 && !showValue && (
+            <div className="empty-album-wrapper">
+              <div className="empty-folder">
+                <i className="bi bi-folder2-open"></i>
+              </div>
 
-    <h5 className="mt-3">No albums yet</h5>
-    <p className="text-muted">
-      Create albums to organize your photos
-    </p>
+              <h5 className="mt-3">No albums yet</h5>
+              <p className="text-muted">
+                Create albums to organize your photos
+              </p>
 
-    <button
-      className="btn btn-primary mt-2 px-4"
-      onClick={() => setShowValue(true)}
-    >
-      Add albums
-    </button>
-  </div>
-)}
+              <button
+                className="btn btn-primary mt-2 px-4"
+                onClick={() => setShowValue(true)}
+              >
+                Add albums
+              </button>
+            </div>
+          )}
 
           <div className="mt-2">
             {message && <p className="alert alert-success">{message}</p>}
@@ -208,9 +208,9 @@ export default function Albums({ users }) {
           </div>
           <div className="row mt-5">
             {filterAlbums?.map((album, index) => (
-              <div className="col-md-4" style={{ margin: "0" }}  key={index}>
+              <div className="col-md-4" style={{ margin: "0" }} key={index}>
                 <div
-                 
+
                   className="card shadow-sm bg-warning bg-opacity-25 border text-center mb-3 h-100"
                   onDoubleClick={(e) => handleCardClick(album._id)}
                 >
