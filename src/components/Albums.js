@@ -198,8 +198,8 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
-              <div className="album-model-overlay">
-                <div className="album-model">
+              <div className="">
+                <div className="">
               <AddAlbum
                 user={users}
                 updateDataId={updateDataId}

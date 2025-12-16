@@ -161,47 +161,7 @@ text-align: center;
   font-size: 48px;
   color: #5f6368;
 }
- /* add alnums btn */
- .album-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  animation: fadeIn 0.25s ease-in-out;
-}
-
-.album-modal {
-  background: #ffffff;
-  width: 420px;
-  max-width: 90%;
-  border-radius: 12px;
-  padding: 20px;
-  animation: popIn 0.25s ease-in-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+ 
 
 
 
