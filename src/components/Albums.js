@@ -220,15 +220,15 @@ export default function Albums({ users }) {
                 >
                   <div className="d-flex justify-content-end p-2">
                     <div className="dropdown">
-                      <button
+                      {/* <button
                         className="btn btn-light dropdown-toggle"
                         type="button"
                         id={`dropdownMenuButton${album._id}`}
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
-                      >
+                      > */}
                         <i className="bi bi-three-dots-vertical"></i>
-                      </button>
+                      {/* </button> */}
                       <ul
                         className="dropdown-menu"
                         aria-labelledby={`dropdownMenuButton${album._id}`}

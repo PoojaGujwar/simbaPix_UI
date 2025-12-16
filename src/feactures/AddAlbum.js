@@ -64,7 +64,7 @@ export default function AddAlbum({ user, updateDataId, onUpdate, onClose }) {
 
   return (
     <div>
-      <h2>{updateDataId ? "Update " : "Create New "}Album: </h2>
+      <h2>{updateDataId ? "Update " : "Create New "}Album </h2>
       {message && <p className="alert alert-success">{message}</p>}
       <form onSubmit={(e) => handleAlbum(e)}>
         <input
