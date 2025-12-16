@@ -198,12 +198,16 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
+              <div className="album-model-overlay">
+                <div className="album-model">
               <AddAlbum
                 user={users}
                 updateDataId={updateDataId}
                 onUpdate={handleAlbumUpdate}
-                onClose={setShowValue}
+                onClose={()=>setShowValue(false)}
               />
+              </div>
+              </div>
             )}
           </div>
           <div className="row mt-5">
