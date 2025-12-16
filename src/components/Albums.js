@@ -146,7 +146,7 @@ export default function Albums({ users }) {
   const filterAlbums = albums?.filter((val) => val.ownerId === users.id);
   return (
     <>
-      <div
+      {/* <div
         className="container-fluid px-0"
         style={{ width: "100%", margin: 0, padding: 0 }}
       >
@@ -161,7 +161,7 @@ export default function Albums({ users }) {
             backgroundColor: "#f0f0f0",
           }}
         />
-      </div>
+      </div> */}
       <div className="bg-light">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
