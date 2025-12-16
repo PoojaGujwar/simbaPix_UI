@@ -44,6 +44,7 @@
   min-height: 100vh;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position:relative
 }
 .home-bg::before {
@@ -89,6 +90,32 @@ text-align: center;
   transform: translate(-2px);
   box-shadow: 0 15px 35px rgba(0,0,0,0.45);
  }
+ @media (max-width: 768px) {
+  .home-bg {
+    background-position: center;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .google-btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  .home-bg {
+    background-size: cover;
+    background-position: center;
+  }
+  .title {
+    font-size: 1.9rem;
+  }
+  .overlay{
+    padding: 0 16px;
+  }
+}
+
 
 
 
