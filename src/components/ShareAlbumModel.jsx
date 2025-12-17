@@ -20,7 +20,7 @@ export default function ShareAlbumModal({
       setLoading(true);
 
       await axios.post(
-        `${process.env.REACT_APP_SERVER_BASE_URL}/v1/shareData`,
+        `https://shimbapix.onrender.com/v1/shareData`,
        {
         albumId:albumId,
         sender:users.email,
