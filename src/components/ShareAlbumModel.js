@@ -10,17 +10,18 @@ export default function ShareAlbumModal({
 }) {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("")
 
   if (!show) return null;
 
   const handleShare = async () => {
     if (!email){
-      alert("Please enter an email address ")
+      setMessage("Please enter an email address ")
       return;
     };
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 if(!emailRegex.test(email)){
-  alert("Please enter a valid email address")
+  setMessage("Please enter a valid email address")
   return
 }
     try {
@@ -49,6 +50,7 @@ onSuccess(data.message);
       console.log("Share error", error);
     } finally {
       setLoading(false);
+      setMessage("")
     }
   };
 
@@ -63,8 +65,8 @@ onSuccess(data.message);
               <h5 className="modal-title">Share Album</h5>
               <button className="btn-close" onClick={onClose}></button>
             </div>
-
             <div className="modal-body">
+              {message && <p className="alter alter-danger">{message}</p>}
               <label className="form-label">Email address</label>
               <input
                 type="email"
