@@ -19,7 +19,7 @@ export default function ShareAlbumModal({
     try {
       setLoading(true);
 
-      await axios.post(
+      let response = await axios.post(
         `https://shimbapix.onrender.com/v1/shareData`,
        {
         albumId:albumId,
@@ -27,10 +27,10 @@ export default function ShareAlbumModal({
         receiver:email
        }
       );
-
+console.log(response)
       onSuccess(`Album shared with ${email}`);
       setEmail("");
-      onClose();
+      // onClose();
     } catch (error) {
       console.log("Share error", error);
     } finally {
