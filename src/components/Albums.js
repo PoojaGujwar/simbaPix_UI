@@ -182,14 +182,18 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
-              <div>
-                <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-backdrop fade show">
+                <div className="modal fade show d-block" tabIndex="-1">
+                  <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                      <button type="button" className="btn-close" onClick={()=>setShowValue(false)}></button>
+                 <div className="modal-body">
               <AddAlbum
                 user={users}
                 updateDataId={updateDataId}
                 onUpdate={handleAlbumUpdate}
                 onClose={()=>setShowValue(false)}
-              />
+              /></div></div></div>
               </div>
               </div>
             )}
