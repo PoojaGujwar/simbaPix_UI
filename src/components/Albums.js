@@ -183,10 +183,9 @@ export default function Albums({ users }) {
 
             {showValue && (
               <div className="modal-backdrop fade show">
-                <div className="modal fade show d-block" tabIndex="-1">
+                <div className="modal  show d-block" tabIndex="-1">
                   <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
-                      <button type="button" className="btn-close" onClick={()=>setShowValue(false)}></button>
                  <div className="modal-body">
               <AddAlbum
                 user={users}
