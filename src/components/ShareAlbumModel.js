@@ -27,7 +27,7 @@ export default function ShareAlbumModal({
 
   try {
     const res = await axios.get(
-      `${process.env.REACT_APP_SERVER_BASE_URL}/v1/shareData`
+      `https://shimbapix.onrender.com/v1/shareData`
     );
 
     const sharedData = res.data || [];
