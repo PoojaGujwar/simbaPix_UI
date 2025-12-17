@@ -182,8 +182,8 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
-              <div className="">
-                <div className="">
+              <div>
+                <div className="modal-dialog modal-dialog-centered">
               <AddAlbum
                 user={users}
                 updateDataId={updateDataId}
