@@ -153,7 +153,7 @@ export default function Albums({ users }) {
             <div className="create-album-btn">
               <button
                 onClick={() => setShowValue(true)}
-                className="btn btn-success px-4 py-2 fw-semibold shadow"
+                className=""
               >
                 + Create Album
               </button>
