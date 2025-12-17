@@ -182,8 +182,8 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
-              <div className="modal-backdrop fade show">
-                <div className="modal  show d-block" tabIndex="-1">
+              <div className="modal-backdrop show">
+                <div className="modal show d-block" tabIndex="-1">
                   <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                  <div className="modal-body">
