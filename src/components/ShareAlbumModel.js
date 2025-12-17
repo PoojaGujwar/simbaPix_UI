@@ -114,7 +114,7 @@ export default function ShareAlbumModal({
                 <ul className="list-group mt-2">
                   {suggestions.map((email) => (
                     <li
-                      key={user.email}
+                      key={email}
                       className="list-group-item list-group-item-action"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
