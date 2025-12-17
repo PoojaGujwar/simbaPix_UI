@@ -11,42 +11,56 @@ export default function ShareAlbumModal({
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("")
+  const [suggestions ,setSuggestions] = useState([])
 
   if (!show) return null;
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log(value, suggestions)
+    setEmail(value)
+    setMessage("")
+    if (value.length > 0) {
+      const filtered = users.filter((u) => u.email.toLowerCase().includes(value.toLowerCase()))
+      setSuggestions(filtered)
+    } else {
+      setSuggestions([])
+    }
+  }
+
   const handleShare = async () => {
-    if (!email){
-      setTimeout(()=>setMessage("Please enter an email address "),1000)
+    if (!email) {
+      setMessage("Please enter an email address ")
       return;
     };
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-if(!emailRegex.test(email)){
-  setMessage(()=>setMessage("Please enter a valid email address"),1000)
-  return
-}
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setMessage("Please enter a valid email address")
+      return
+    }
     try {
       setLoading(true);
 
       let response = await axios.post(
         `https://shimbapix.onrender.com/v1/shareData`,
-       {
-        albumId:albumId,
-        sender:users.email,
-        receiver:email
-       }
+        {
+          albumId: albumId,
+          sender: users.email,
+          receiver: email
+        }
       );
-const data = response.data
-console.log(data)
-if(data){
-  setTimeout(()=>setMessage(data.message),2000)
-onSuccess(data.message);
-      setEmail("");
-      onClose();
-}
-  else {
-      alert(data.message); 
-    }
-      
+      const data = response.data
+      console.log(data)
+      if (data) {
+        setMessage(data.message)
+        onSuccess(data.message);
+        setEmail("");
+        onClose();
+      }
+      else {
+        alert(data.message);
+      }
+
     } catch (error) {
       console.log("Share error", error);
     } finally {
@@ -67,15 +81,33 @@ onSuccess(data.message);
               <button className="btn-close" onClick={onClose}></button>
             </div>
             <div className="modal-body">
-              {message && <p className="alert alert-danger">{message}</p>}
+              {message && <p className="alert alert-warning">{message}</p>}
               <label className="form-label">Email address</label>
               <input
                 type="email"
                 className="form-control"
                 placeholder="Enter email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
               />
+              {suggestions.length > 0 && (
+                <ul className="list-group mt-2">
+                  {suggestions.map((user) => (
+                    <li
+                      key={user.email}
+                      className="list-group-item list-group-item-action"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        setEmail(user.email);
+                        setSuggestions([]);
+                      }}
+                    >
+                      {user.email}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
             </div>
 
             <div className="modal-footer">
