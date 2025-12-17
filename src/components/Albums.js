@@ -146,23 +146,7 @@ export default function Albums({ users }) {
   const filterAlbums = albums?.filter((val) => val.ownerId === users.id);
   return (
     <>
-      {/* <div
-        className="container-fluid px-0"
-        style={{ width: "100%", margin: 0, padding: 0 }}
-      >
-        <img
-          src="https://images.ctfassets.net/h6goo9gw1hh6/4wpjrIGPCWYlFju7r2ccag/6cc5e92db40c17b96187ad8bf16905cf/Facebook-Cover-collage-aesthetic.jpg"
-          alt="Logo"
-          className="img-fluid"
-          style={{
-            height: "500px",
-            width: "100%",
-            objectFit: "cover",
-            backgroundColor: "#f0f0f0",
-          }}
-        />
-      </div> */}
-      <div className="bg-light 100vh">
+      <div className="bg-light" style={{maxHeight:"100vh"}}>
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
           {filterAlbums?.length > 0 && (
