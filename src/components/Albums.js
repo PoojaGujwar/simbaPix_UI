@@ -206,7 +206,7 @@ export default function Albums({ users }) {
                 <div
 
                   className="card shadow-sm bg-white border-0 text-center mb-3 h-100"
-                  onDoubleClick={(e) => handleCardClick(album._id)}
+                  // onDoubleClick={(e) => handleCardClick(album._id)}
                 >
                   <div className="d-flex justify-content-end p-2">
                     <div className="dropdown">
@@ -268,6 +268,7 @@ export default function Albums({ users }) {
                   <div className="card-body">
                     <h5>{album.name}</h5>
                     <p className="card-text text-muted">{album.description}</p>
+                    <button onClick={(e) => handleCardClick(album._id)} className="btn btn-primary btn-opacity-10">Add Images</button>
                   </div>
                 </div>
               </div>
