@@ -211,7 +211,7 @@ export default function Albums({ users }) {
                   <div className="d-flex justify-content-end p-2">
                     <div className="dropdown">
                       <button
-                        className="btn btn-light dropdown-toggle"
+                        className="btn btn-primary btn-opacity-10 dropdown-toggle"
                         type="button"
                         id={`dropdownMenuButton${album._id}`}
                         data-bs-toggle="dropdown"
