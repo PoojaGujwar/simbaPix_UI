@@ -182,7 +182,9 @@ export default function Albums({ users }) {
             {message && <p className="alert alert-success">{message}</p>}
 
             {showValue && (
-              <div className="modal-backdrop show">
+              <>
+              <div className="modal-backdrop show"></div>
+
                 <div className="modal show d-block" tabIndex="-1">
                   <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -192,9 +194,11 @@ export default function Albums({ users }) {
                 updateDataId={updateDataId}
                 onUpdate={handleAlbumUpdate}
                 onClose={()=>setShowValue(false)}
-              /></div></div></div>
+              />
               </div>
+              </div></div>
               </div>
+              </>
             )}
           </div>
           <div className="row mt-5">
