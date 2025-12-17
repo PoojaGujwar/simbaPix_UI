@@ -61,7 +61,7 @@ export default function Images() {
   };
 
   return (
-    <div className="bg-light">
+    <div className="bg-light min-vh-100">
       <div className="container mt-5">
         {!showValue && (
           <button
@@ -113,6 +113,7 @@ export default function Images() {
               </div>
             </div>
           ))):(
+            !showValue && (
             <div className="col-12">
             <div className="card shadow-sm text-center py-4">
               <div className="card-body">
@@ -120,6 +121,7 @@ export default function Images() {
               </div>
             </div>
           </div>
+            )
           )}
         </div>
       </div>
