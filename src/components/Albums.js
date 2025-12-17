@@ -150,10 +150,10 @@ export default function Albums({ users }) {
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
           {filterAlbums?.length > 0 && (
-            <div className="create-album-btn">
+            <div >
               <button
                 onClick={() => setShowValue(true)}
-                className=""
+                className="create-album-btn"
               >
                 + Create Album
               </button>
