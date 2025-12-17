@@ -15,18 +15,38 @@ export default function ShareAlbumModal({
 
   if (!show) return null;
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    console.log(value, suggestions)
-    setEmail(value)
-    setMessage("")
-    if (value.length > 0) {
-      const filtered = users.filter((u) => u.email.toLowerCase().includes(value.toLowerCase()))
-      setSuggestions(filtered)
-    } else {
-      setSuggestions([])
-    }
+  const handleChange = async (e) => {
+  const value = e.target.value;
+  setEmail(value);
+  setMessage("");
+
+  if (!value) {
+    setSuggestions([]);
+    return;
   }
+
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_SERVER_BASE_URL}/v1/shareData`
+    );
+
+    const sharedData = res.data || [];
+
+    const emails = [
+      ...new Set(sharedData.map((item) => item.receiver)),
+    ].filter(
+      (email) =>
+        email !== users.email &&
+        email.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setSuggestions(emails);
+  } catch (error) {
+    console.log("Suggestion fetch error", error);
+    setSuggestions([]);
+  }
+};
+
 
   const handleShare = async () => {
     if (!email) {
@@ -92,17 +112,17 @@ export default function ShareAlbumModal({
               />
               {suggestions.length > 0 && (
                 <ul className="list-group mt-2">
-                  {suggestions.map((user) => (
+                  {suggestions.map((email) => (
                     <li
                       key={user.email}
                       className="list-group-item list-group-item-action"
                       style={{ cursor: "pointer" }}
                       onClick={() => {
-                        setEmail(user.email);
+                        setEmail(email);
                         setSuggestions([]);
                       }}
                     >
-                      {user.email}
+                      {email}
                     </li>
                   ))}
                 </ul>
