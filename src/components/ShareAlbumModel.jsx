@@ -20,9 +20,12 @@ export default function ShareAlbumModal({
       setLoading(true);
 
       await axios.post(
-        `${process.env.REACT_APP_SERVER_BASE_URL}/albums/${albumId}/share`,
-        { sharedUser: email },
-        { withCredentials: true }
+        `${process.env.REACT_APP_SERVER_BASE_URL}/v1/shareData`,
+       {
+        albumId:albumId,
+        sender:users.email,
+        receiver:email
+       }
       );
 
       onSuccess(`Album shared with ${email}`);

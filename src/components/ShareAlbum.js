@@ -39,7 +39,7 @@ console.log(data)
           filteredAlbums.map((album) => (
            
 <div key={album._id} className="col-md-4">
-              <div className="card mb-4 shadow-sm border-0 position-relative h-100" onClick={()=>handleCardClick(album.album._id) }>
+              <div className="card mb-4 shadow-sm border-0 position-relative h-100">
                 <div
                   className="bg-primary bg-opacity-10 text-primary card-header"
                   style={{
@@ -56,6 +56,7 @@ console.log(data)
                   <p className="card-text text-muted">
                     {album.album.description || "No description available."}
                   </p>
+                  <button onClick={()=>handleCardClick(album.album._id)} className="btn btn-primary btn-opacity-10">Add Images</button>
 
                 </div>
               </div>
