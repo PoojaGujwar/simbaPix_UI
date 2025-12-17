@@ -149,6 +149,7 @@ export default function Albums({ users }) {
       <div className="bg-light min-vh-100">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
+           {message && <p className="alert alert-success">{message}</p>}
           {filterAlbums?.length > 0 && (
             <div >
               <button
@@ -179,8 +180,6 @@ export default function Albums({ users }) {
           )}
 
           <div className="mt-2">
-            {message && <p className="alert alert-success">{message}</p>}
-
             {showValue && (
               <>
               <div className="modal-backdrop show"></div>
