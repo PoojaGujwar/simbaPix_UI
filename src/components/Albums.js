@@ -4,6 +4,7 @@ import axios from "axios";
 import AddAlbum from "../feactures/AddAlbum";
 import Header from "./Header";
 import { io } from "socket.io-client";
+import ShareAlbunModel from "./ShareAlbumModel";
 
 
 const socket = io(`${process.env.REACT_APP_SERVER_BASE_URL}`);
@@ -17,6 +18,8 @@ export default function Albums({ users }) {
   const [activeSharedAlbumId, setActiveSharedAlbumId] = useState(null);
   const [selectedEmail, setSelectedEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [showShareModel, setShowShareModel] = useState(false)
+  const [selectedAlbumId, setSelectedAlbumId] = useState(null)
   console.log(users);
 
   useEffect(() => {
@@ -242,7 +245,10 @@ export default function Albums({ users }) {
                         <li>
                           <button
                             className="dropdown-item text-secondary"
-                            onClick={() => handleShare(album._id)}
+                            onClick={()=>{
+                              setSelectedAlbumId(album._id)
+                              setShowShareModel(true)
+                            }}
                           >
                             Share
                           </button>
@@ -251,19 +257,7 @@ export default function Albums({ users }) {
                     </div>
                   </div>
 
-                  {activeSharedAlbumId === album._id &&
-                    sharedUser?.length > 0 && (
-                      <ul>
-                        {sharedUser.map((user, i) => (
-                          <li
-                            key={i}
-                            onClick={() => setSelectedEmail(user.email)}
-                          >
-                            {user.email}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                
 
                   <div className="card-body">
                     <h5>{album.name}</h5>
@@ -275,6 +269,16 @@ export default function Albums({ users }) {
             ))}
           </div>
         </div>
+         <ShareAlbunModel
+                 show={showShareModel}
+                 albumId={selectedAlbumId}
+                 users={users}
+                 onClose={()=>setShowShareModel(false)}
+                 onSuccess={()=>{
+                  setMessage(message)
+                  setTimeout(()=>setMessage(""),2000)
+                 }}
+                 />
       </div>
     </>
   );
