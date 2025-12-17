@@ -14,8 +14,15 @@ export default function ShareAlbumModal({
   if (!show) return null;
 
   const handleShare = async () => {
-    if (!email) return;
-
+    if (!email){
+      alert("Please enter an email address ")
+      return;
+    };
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emailRegex.test(email)){
+  alert("Please enter a valid email address")
+  return
+}
     try {
       setLoading(true);
 
@@ -28,9 +35,16 @@ export default function ShareAlbumModal({
        }
       );
 const data = response.data
-      onSuccess(data.message);
+console.log(data)
+if(data){
+onSuccess(data.message);
       setEmail("");
       onClose();
+}
+  else {
+      alert(data.message); 
+    }
+      
     } catch (error) {
       console.log("Share error", error);
     } finally {
