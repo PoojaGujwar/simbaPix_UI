@@ -146,7 +146,7 @@ export default function Albums({ users }) {
   const filterAlbums = albums?.filter((val) => val.ownerId === users.id);
   return (
     <>
-      <div className="bg-light" style={{maxHeight:"100vh"}}>
+      <div className="bg-light min-vh-100">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
           {filterAlbums?.length > 0 && (
