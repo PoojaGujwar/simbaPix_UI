@@ -162,7 +162,7 @@ export default function Albums({ users }) {
           }}
         />
       </div> */}
-      <div className="bg-light">
+      <div className="bg-light 100vh">
         <div className="container-fluid py-3 px-3">
           <h2 className="text-center">Albums</h2>
           {filterAlbums?.length > 0 && (
