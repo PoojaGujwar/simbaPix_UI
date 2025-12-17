@@ -62,7 +62,7 @@ export default function Images() {
 
   return (
     <div className="bg-light min-vh-100">
-      <div className="container mt-5">
+      <div className="container">
         {!showValue && (
           <button
             onClick={(e) => setShowValue(true)}

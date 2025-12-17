@@ -41,7 +41,7 @@ console.log(data)
 <div key={album._id} className="col-md-4">
               <div className="card mb-4 shadow-sm border-0 position-relative h-100" onClick={()=>handleCardClick(album.album._id) }>
                 <div
-                  className="bg-primary bg-opacity-10 text-primary"
+                  className="bg-primary bg-opacity-10 text-primary card-header"
                   style={{
                     height: "",
                     borderRadius: "0.5rem 0.5rem 0 0",
