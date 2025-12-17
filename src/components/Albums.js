@@ -205,7 +205,7 @@ export default function Albums({ users }) {
               <div className="col-md-4" style={{ margin: "0" }} key={index}>
                 <div
 
-                  className="card shadow-sm bg-warning bg-opacity-25 border text-center mb-3 h-100"
+                  className="card shadow-sm bg-white border-0 text-center mb-3 h-100"
                   onDoubleClick={(e) => handleCardClick(album._id)}
                 >
                   <div className="d-flex justify-content-end p-2">
