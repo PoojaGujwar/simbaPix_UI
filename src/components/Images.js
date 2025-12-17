@@ -67,7 +67,7 @@ export default function Images() {
           <button
             onClick={(e) => setShowValue(true)}
             onDoubleClick={(e) => setShowValue(false)}
-            className="btn btn-info "
+            className="btn btn-info mt-5"
           >
             Upload Image
           </button>
