@@ -27,10 +27,10 @@ export default function ShareAlbumModal({
         receiver:email
        }
       );
-console.log(response)
-      onSuccess(`Album shared with ${email}`);
+const data = response.data
+      onSuccess(data.message);
       setEmail("");
-      // onClose();
+      onClose();
     } catch (error) {
       console.log("Share error", error);
     } finally {
